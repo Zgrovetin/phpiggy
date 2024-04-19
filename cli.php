@@ -2,13 +2,26 @@
 
 include __DIR__ . '/src/Framework/Database.php';
 
-use Framework\Database;
+require __DIR__ . "/vendor/autoload.php"; //exercise1
 
-$db = new Database('mysql', [
-    'host' => 'localhost',
-    'port' => 3306,
-    'dbname' => 'phpiggy'
-], 'root', '');
+use Framework\Database;
+use Dotenv\Dotenv;      //exercise2
+use App\Config\Paths;   //exercise5
+
+$dotenv = Dotenv::createImmutable(Paths::ROOT); //exercise3
+$dotenv->load();                                //exercise3
+
+// $db = new Database('mysql', [ //before exercise4
+//     'host' => 'localhost',          //before exercise4
+//     'port' => 3306,          //before exercise4
+//     'dbname' => 'phpiggy'         //before exercise4
+// ], 'root', '');   //before exercise4
+
+$db = new Database($_ENV['DB_DRIVER'], [ //exercise4
+    'host' => $_ENV['DB_HOST'],          //exercise4
+    'port' => $_ENV['DB_PORT'],          //exercise4
+    'dbname' => $_ENV['DB_NAME']         //exercise4
+], $_ENV['DB_USER'], $_ENV['DB_PASS']);   //exercise4
 
 $sqlFile = file_get_contents("./database.sql");
 
