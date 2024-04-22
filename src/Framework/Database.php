@@ -22,7 +22,6 @@ class Database
         $dsn = "{$driver}:{$config}";
 
         try {
-
             $this->connection = new PDO($dsn, $username, $password, [
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             ]);
@@ -54,5 +53,10 @@ class Database
     {
         return
             $this->connection->lastInsertId();
+    }
+
+    public function findAll()
+    {
+        return $this->stmt->fetchAll();
     }
 }
