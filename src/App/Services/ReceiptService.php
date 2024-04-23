@@ -56,14 +56,14 @@ class ReceiptService
         $uploadPath = Paths::STORAGE_UPLOADS . "/" . $newFilename;
 
         if (!move_uploaded_file($file['tmp_name'], $uploadPath)) {
-            throw new ValidationException(['receipt' => ['Failed to upload file 2']]);
+            throw new ValidationException(['receipt' => ['Failed to upload file']]);
         }
 
         $this->db->query(
             "INSERT INTO receipts(
-            transaction_id, original_filename, storage_filename, media_type
-            )
-            VALUES (:transaction_id, :original_filename, :storage_filename, :media_type)",
+        transaction_id, original_filename, storage_filename, media_type
+      )
+      VALUES(:transaction_id, :original_filename, :storage_filename, :media_type)",
             [
                 'transaction_id' => $transaction,
                 'original_filename' => $file['name'],

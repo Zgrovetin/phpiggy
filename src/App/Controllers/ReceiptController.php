@@ -5,10 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use Framework\TemplateEngine;
-use App\Services\{
-    TransactionService,
-    ReceiptService
-};
+use App\Services\{TransactionService, ReceiptService};
 
 class ReceiptController
 {

@@ -18,7 +18,7 @@ class TransactionService
 
         $this->db->query(
             "INSERT INTO transactions(user_id, description, amount, date)
-            VALUES(:user_id, :description, :amount, :date)",
+      VALUES(:user_id, :description, :amount, :date)",
             [
                 'user_id' => $_SESSION['user'],
                 'description' => $formData['description'],
@@ -38,10 +38,10 @@ class TransactionService
 
         $transactions = $this->db->query(
             "SELECT *, DATE_FORMAT(date, '%Y-%m-%d') as formatted_date
-            FROM transactions
-            WHERE user_id = :user_id
-            AND description LIKE :description
-            LIMIT {$length} OFFSET {$offset}",
+      FROM transactions 
+      WHERE user_id = :user_id
+      AND description LIKE :description
+      LIMIT {$length} OFFSET {$offset}",
             $params
         )->findAll();
 
@@ -56,9 +56,9 @@ class TransactionService
 
         $transactionCount = $this->db->query(
             "SELECT COUNT(*)
-            FROM transactions
-            WHERE user_id = :user_id
-            AND description LIKE :description",
+      FROM transactions 
+      WHERE user_id = :user_id
+      AND description LIKE :description",
             $params
         )->count();
 
@@ -69,8 +69,8 @@ class TransactionService
     {
         return $this->db->query(
             "SELECT *, DATE_FORMAT(date, '%Y-%m-%d') as formatted_date
-            FROM transactions
-            WHERE id = :id AND user_id = :user_id",
+      FROM transactions 
+      WHERE id = :id AND user_id = :user_id",
             [
                 'id' => $id,
                 'user_id' => $_SESSION['user']
@@ -84,11 +84,11 @@ class TransactionService
 
         $this->db->query(
             "UPDATE transactions
-            SET description = :description,
-                amount = :amount,
-                date = :date
-            WHERE id = :id
-            AND user_id = :user_id",
+      SET description = :description,
+        amount = :amount,
+        date = :date
+      WHERE id = :id
+      AND user_id = :user_id",
             [
                 'description' => $formData['description'],
                 'amount' => $formData['amount'],
