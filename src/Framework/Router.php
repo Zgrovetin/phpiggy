@@ -108,6 +108,6 @@ class Router
             $action = fn () => $middlewareInstance->process($action);
         }
 
-        $action;
+        $action();
     }
 }
