@@ -1,8 +1,10 @@
 Title
-phpiggy — Simple PHP Expense Tracker
+
+    phpiggy — Simple PHP Expense Tracker
 
 Short description
-A lightweight PHP application for tracking personal/business expenses. Includes UI, categories, expense list, and basic reporting. Demo hosted (Cloudways) — use the demo link to view UI quickly. 
+
+    A lightweight PHP application for tracking personal/business expenses. Includes UI, categories, expense list, and basic reporting. Demo hosted (Cloudways) — use the demo link to view UI quickly. 
 
 Core features
 
@@ -33,7 +35,9 @@ Quick setup (local or server)
         Place files in your web root (XAMPP, MAMP, or production server) or use PHP built-in server for quick local testing: php -S 127.0.0.1:8000 -t public
 
     Demo
-        Live demo (Cloudways): see repo page for link.
+        Live demo (Cloudways): https://phpstack-1258474-4521318.cloudwaysapps.com/
+        username, password:
+                    test@test.test
 
     License
         MIT. 
